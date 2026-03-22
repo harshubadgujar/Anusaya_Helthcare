@@ -34,7 +34,7 @@ export default function Hero() {
             <span className="block md:hidden">Anusaya Health Care &amp; First Aid Services</span>
             <span className="block md:hidden text-white">Trusted Healthcare at Your Doorstep</span>
 
-            <span className="hidden md:inline">Anusaya Health Care &amp; First Aid Services — </span>
+            <span className="hidden md:inline">Anusaya Health Care &amp; First Aid Services &mdash; </span>
             <span className="hidden md:inline shimmer-text inline-block bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Trusted Healthcare at Your Doorstep</span>
           </h1>
 
