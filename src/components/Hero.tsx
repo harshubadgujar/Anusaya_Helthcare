@@ -6,7 +6,7 @@ export default function Hero() {
     >
       {/* Background medical image overlay */}
       <div className="absolute inset-0" aria-hidden="true">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#052a57]/78 via-[#0a3b78]/72 to-[#0b4ea2]/70 md:from-[#052a57]/90 md:via-[#0a3b78]/80 md:to-[#0b4ea2]/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#052a57]/62 via-[#0a3b78]/58 to-[#0b4ea2]/56 md:from-[#052a57]/90 md:via-[#0a3b78]/80 md:to-[#0b4ea2]/75" />
         <div
           className="absolute inset-0 opacity-[0.07]"
           style={{
@@ -31,12 +31,14 @@ export default function Hero() {
 
           {/* Heading */}
           <div className="w-full lg:flex lg:justify-end">
-            <h1 className="animate-fade-in-up animation-delay-200 text-2xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-5xl px-4 md:px-0 leading-snug md:leading-tight text-center lg:text-right">
-              <span className="block md:hidden">Anusaya Health Care &amp; First Aid Services</span>
-              <span className="block md:hidden mt-1 shimmer-text inline-block bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Trusted Healthcare at Your Doorstep</span>
-
-              <span className="hidden md:block">Anusaya Health Care &amp; First Aid Services &mdash;</span>
-              <span className="hidden md:block shimmer-text inline-block bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Trusted Healthcare at Your Doorstep</span>
+            <h1 className="animate-fade-in-up animation-delay-200 text-2xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-5xl lg:max-w-[46rem] px-4 md:px-0 leading-snug md:leading-tight text-center lg:text-right lg:ml-auto">
+              <span className="block">
+                Anusaya Health Care &amp; First Aid Services
+                <span className="hidden md:inline"> &mdash;</span>
+              </span>
+              <span className="block mt-1 md:mt-0 shimmer-text inline-block bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                Trusted Healthcare at Your Doorstep
+              </span>
             </h1>
           </div>
 
