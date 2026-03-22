@@ -30,13 +30,18 @@ export default function Hero() {
           </div>
 
           {/* Heading */}
-          <h1 className="animate-fade-in-up animation-delay-200 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl xl:text-6xl max-w-4xl lg:max-w-[52rem] leading-[1.1] lg:ml-auto text-center lg:text-right">
-            Anusaya Health Care &amp; First Aid Services —{" "}
-            <span className="shimmer-text inline-block bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Trusted Healthcare at Your Doorstep</span>
+          <h1 className="animate-fade-in-up animation-delay-200 text-2xl md:text-5xl font-extrabold tracking-tight text-white max-w-4xl lg:max-w-[52rem] px-4 md:px-0 leading-snug md:leading-tight text-center lg:text-right">
+            <span className="block md:inline">
+              Anusaya Health Care &amp; First Aid Services
+              <span className="hidden md:inline"> &mdash; </span>
+            </span>
+            <span className="block text-white md:bg-gradient-to-r md:from-blue-400 md:to-cyan-400 md:bg-clip-text md:text-transparent">
+              Trusted Healthcare at Your Doorstep
+            </span>
           </h1>
 
           {/* Subheading */}
-          <p className="animate-fade-in-up animation-delay-400 mt-6 max-w-2xl text-lg text-blue-100/90 sm:text-xl leading-relaxed">
+          <p className="animate-fade-in-up animation-delay-400 mt-6 max-w-2xl text-sm md:text-lg text-blue-100/90 leading-relaxed">
             24/7 Professional Nursing &amp; Care Services in Pune &amp; PCMC.
             Experienced, compassionate &amp; affordable home healthcare you can rely on.
           </p>
@@ -55,7 +60,7 @@ export default function Hero() {
           </div>
 
           {/* CTAs */}
-          <div className="animate-fade-in-up animation-delay-800 mt-10 flex flex-col sm:flex-row gap-4">
+          <div className="animate-fade-in-up animation-delay-800 mt-6 md:mt-8 flex flex-col sm:flex-row gap-4">
             <a
               href="#booking"
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-9 py-4 text-base font-bold text-primary shadow-2xl hover:shadow-white/25 hover:bg-gray-50 transition-all duration-300 hover:-translate-y-1"
