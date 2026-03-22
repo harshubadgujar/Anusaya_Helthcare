@@ -96,8 +96,8 @@ export default function Hero() {
           {/* Stats */}
           <div className="animate-fade-in mt-14 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10 text-center">
             {[
-              { value: "5+", label: "Years Experience" },
-              { value: "1000+", label: "Patients Served" },
+              { value: "3+", label: "Years Experience" },
+              { value: "500+", label: "Patients Served" },
               { value: "24/7", label: "Available" },
               { value: "50+", label: "Trained Staff" },
             ].map((stat) => (
