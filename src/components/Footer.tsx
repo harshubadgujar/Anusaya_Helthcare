@@ -160,7 +160,12 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-gray-700/50 py-6 text-center text-xs text-gray-500">
-          &copy; {currentYear} Anusaya Care (AHCS). All rights reserved.
+          <p>&copy; {currentYear} Anusaya Care (AHCS). All rights reserved.</p>
+          <p className="mt-2 text-sm md:text-base font-medium text-center">
+            <span className="shimmer-text inline-block bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(59,130,246,0.6)] transition-all duration-300 hover:brightness-110 hover:scale-105">
+              Designed &amp; Developed by Harshal Badgujar | +91 7038555308
+            </span>
+          </p>
         </div>
       </div>
     </footer>
