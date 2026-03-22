@@ -6,7 +6,7 @@ export default function Hero() {
     >
       {/* Background medical image overlay */}
       <div className="absolute inset-0" aria-hidden="true">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#052a57]/80 via-[#0a3b78]/76 to-[#0b4ea2]/74 md:from-[#052a57]/90 md:via-[#0a3b78]/80 md:to-[#0b4ea2]/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#052a57]/86 via-[#0a3b78]/83 to-[#0b4ea2]/81 md:from-[#052a57]/90 md:via-[#0a3b78]/80 md:to-[#0b4ea2]/75" />
         <div
           className="absolute inset-0 opacity-[0.07]"
           style={{
