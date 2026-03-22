@@ -1,8 +1,12 @@
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-heading via-primary-dark to-primary pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <section
+      className="relative overflow-hidden bg-gradient-to-br from-heading via-primary-dark to-primary bg-cover bg-center pt-28 pb-20 sm:pt-36 sm:pb-28"
+      style={{ backgroundImage: 'url("/doctor2.png")' }}
+    >
       {/* Background medical image overlay */}
       <div className="absolute inset-0" aria-hidden="true">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#052a57]/90 via-[#0a3b78]/80 to-[#0b4ea2]/75" />
         <div
           className="absolute inset-0 opacity-[0.07]"
           style={{
@@ -26,9 +30,9 @@ export default function Hero() {
           </div>
 
           {/* Heading */}
-          <h1 className="animate-fade-in-up animation-delay-200 text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl max-w-5xl leading-[1.1]">
-            Anusaya Care —{" "}
-            <span className="shimmer-text">Trusted Healthcare at Your Doorstep</span>
+          <h1 className="animate-fade-in-up animation-delay-200 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl xl:text-6xl max-w-4xl lg:max-w-[52rem] leading-[1.1] lg:ml-auto text-center lg:text-right">
+            Anusaya Health Care &amp; First Aid Services —{" "}
+            <span className="shimmer-text inline-block bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Trusted Healthcare at Your Doorstep</span>
           </h1>
 
           {/* Subheading */}
