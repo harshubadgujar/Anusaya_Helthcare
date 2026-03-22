@@ -21,7 +21,7 @@ export default function Hero() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
           {/* Badge */}
-          <div className="animate-fade-in-up mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm px-5 py-2.5 text-sm font-medium text-white ring-1 ring-white/20">
+          <div className="animate-fade-in-up mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-medium text-white ring-1 ring-white/20 text-center">
             <span className="relative flex h-2.5 w-2.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-400" />
@@ -30,16 +30,16 @@ export default function Hero() {
           </div>
 
           {/* Heading */}
-          <h1 className="animate-fade-in-up animation-delay-200 text-2xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-5xl px-4 md:px-0 leading-snug md:leading-tight text-center">
+          <h1 className="animate-fade-in-up animation-delay-200 text-2xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-5xl px-4 md:px-0 leading-snug md:leading-tight text-center lg:text-right lg:ml-auto">
             <span className="block md:hidden">Anusaya Health Care &amp; First Aid Services</span>
-            <span className="block md:hidden shimmer-text inline-block bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Trusted Healthcare at Your Doorstep</span>
+            <span className="block md:hidden shimmer-text inline-block bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mt-1">Trusted Healthcare at Your Doorstep</span>
 
             <span className="hidden md:block">Anusaya Health Care &amp; First Aid Services</span>
             <span className="hidden md:block shimmer-text inline-block bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Trusted Healthcare at Your Doorstep</span>
           </h1>
 
           {/* Subheading */}
-          <p className="animate-fade-in-up animation-delay-400 mt-6 max-w-2xl text-sm md:text-lg text-blue-100/90 leading-relaxed">
+          <p className="animate-fade-in-up animation-delay-400 mt-5 md:mt-6 max-w-2xl text-sm md:text-lg text-blue-100/90 leading-relaxed px-2 md:px-0">
             24/7 Professional Nursing &amp; Care Services in Pune &amp; PCMC.
             Experienced, compassionate &amp; affordable home healthcare you can rely on.
           </p>
@@ -50,7 +50,7 @@ export default function Hero() {
           </p>
 
           {/* Urgency line */}
-          <div className="animate-fade-in-up animation-delay-600 mt-5 inline-flex items-center gap-2 rounded-full bg-red-500/20 backdrop-blur-sm px-5 py-2 text-sm font-semibold text-red-200 ring-1 ring-red-400/30">
+          <div className="animate-fade-in-up animation-delay-600 mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-red-500/20 backdrop-blur-sm px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold text-red-200 ring-1 ring-red-400/30 text-center">
             <svg className="h-4 w-4 text-red-400 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
             </svg>
@@ -61,7 +61,7 @@ export default function Hero() {
           <div className="animate-fade-in-up animation-delay-800 mt-6 md:mt-8 flex flex-col sm:flex-row gap-4">
             <a
               href="#booking"
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-9 py-4 text-base font-bold text-primary shadow-2xl hover:shadow-white/25 hover:bg-gray-50 transition-all duration-300 hover:-translate-y-1"
+              className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-white px-9 py-4 text-base font-bold text-primary shadow-2xl hover:shadow-white/25 hover:bg-gray-50 transition-all duration-300 hover:-translate-y-1"
             >
               <CalendarIcon />
               Book Now
@@ -71,7 +71,7 @@ export default function Hero() {
             </a>
             <a
               href="tel:+918805042117"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white/10 backdrop-blur-sm px-9 py-4 text-base font-bold text-white ring-1 ring-white/25 hover:bg-white/20 hover:ring-white/40 transition-all duration-300 hover:-translate-y-1"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-white/10 backdrop-blur-sm px-9 py-4 text-base font-bold text-white ring-1 ring-white/25 hover:bg-white/20 hover:ring-white/40 transition-all duration-300 hover:-translate-y-1"
             >
               <PhoneIcon />
               Call Now — 8805042117
@@ -79,7 +79,7 @@ export default function Hero() {
           </div>
 
           {/* Trust badges */}
-          <div className="animate-fade-in mt-12 flex flex-wrap justify-center gap-3 sm:gap-4">
+          <div className="animate-fade-in mt-10 sm:mt-12 flex flex-wrap justify-center gap-2 sm:gap-4">
             {[
               { icon: "🕐", label: "24/7 Available" },
               { icon: "✅", label: "Verified Staff" },
@@ -97,7 +97,7 @@ export default function Hero() {
           </div>
 
           {/* Stats */}
-          <div className="animate-fade-in mt-14 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10 text-center">
+          <div className="animate-fade-in mt-12 sm:mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-10 text-center">
             {[
               { value: "3+", label: "Years Experience" },
               { value: "500+", label: "Patients Served" },
@@ -105,7 +105,7 @@ export default function Hero() {
               { value: "50+", label: "Trained Staff" },
             ].map((stat) => (
               <div key={stat.label} className="group">
-                <div className="text-3xl sm:text-4xl font-extrabold text-white group-hover:scale-110 transition-transform duration-300">{stat.value}</div>
+                <div className="text-2xl sm:text-4xl font-extrabold text-white group-hover:scale-110 transition-transform duration-300">{stat.value}</div>
                 <div className="mt-1 text-sm text-blue-200/70">{stat.label}</div>
               </div>
             ))}
