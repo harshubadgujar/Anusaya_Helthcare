@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { useCopy, useLanguage } from "@/lib/language";
 
 const steps = [
@@ -22,10 +23,49 @@ const faqs = [
 export default function CareProcess() {
   const t = useCopy();
   const { language } = useLanguage();
+  const stepsRef = useRef<HTMLOListElement>(null);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      const list = stepsRef.current;
+      if (!list) return;
+      const rect = list.getBoundingClientRect();
+      const desktop = window.matchMedia("(min-width: 1024px)").matches;
+      const distance = desktop ? window.innerHeight * 0.5 : Math.max(1, rect.height - 100);
+      const next = Math.max(0, Math.min(1, (window.innerHeight * 0.72 - rect.top - 40) / distance));
+      setProgress(next);
+    };
+    const onScroll = () => {
+      window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(update);
+    };
+    frame = window.requestAnimationFrame(update);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
   return <section className="bg-white py-20 sm:py-28">
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="text-center"><span className="text-xs font-bold uppercase tracking-wider text-primary">{t("Simple Booking Process", "सोपी बुकिंग प्रक्रिया")}</span><h2 className="mt-3 text-3xl font-extrabold text-heading sm:text-4xl">{t("How Home Nursing Works", "घरगुती नर्सिंग सेवा कशी सुरू होते")}</h2></div>
-      <ol className="mt-12 grid gap-5 md:grid-cols-3 lg:grid-cols-5">{steps.map((item, index) => <li key={item[0]} className="rounded-2xl border border-primary/10 bg-primary-lighter p-5"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary font-bold text-white">{index + 1}</span><h3 className="mt-4 font-bold text-heading">{language === "mr" ? item[1] : item[0]}</h3><p className="mt-2 text-sm leading-relaxed text-gray-600">{language === "mr" ? item[3] : item[2]}</p></li>)}</ol>
+      <ol ref={stepsRef} className="relative mx-auto mt-12 grid max-w-3xl gap-5 lg:max-w-none lg:grid-cols-5">{steps.map((item, index) => {
+        const fill = Math.max(0, Math.min(1, progress * (steps.length - 1) - index)) * 100;
+        return <li key={item[0]} className="relative rounded-2xl border border-primary/10 bg-primary-lighter p-5 pl-20 lg:min-h-64 lg:pl-5 lg:pt-20">
+          {index < steps.length - 1 && <>
+            <span aria-hidden="true" className="absolute left-[39px] top-10 h-[calc(100%+1.25rem)] w-[3px] bg-sky-200 lg:hidden"><span className="block w-full bg-primary transition-[height] duration-150" style={{ height: `${fill}%` }} /></span>
+            <span aria-hidden="true" className="absolute left-10 top-[39px] hidden h-[3px] w-[calc(100%+1.25rem)] bg-sky-200 lg:block"><span className="block h-full bg-primary transition-[width] duration-150" style={{ width: `${fill}%` }} /></span>
+          </>}
+          <span className="absolute left-5 top-5 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-primary font-bold text-white shadow-md shadow-primary/20">{index + 1}</span>
+          <h3 className="font-bold text-heading">{language === "mr" ? item[1] : item[0]}</h3>
+          <p className="mt-2 text-sm leading-relaxed text-gray-600">{language === "mr" ? item[3] : item[2]}</p>
+        </li>;
+      })}</ol>
       <div id="faq" className="mx-auto mt-20 max-w-3xl scroll-mt-24"><h2 className="text-center text-3xl font-extrabold text-heading">{t("Frequently Asked Questions", "वारंवार विचारले जाणारे प्रश्न")}</h2><div className="mt-8 space-y-3">{faqs.map(item => <details key={item[0]} className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm"><summary className="cursor-pointer font-semibold text-heading">{language === "mr" ? item[1] : item[0]}</summary><p className="mt-3 text-sm leading-relaxed text-gray-600">{language === "mr" ? item[3] : item[2]}</p></details>)}</div></div>
     </div>
   </section>;

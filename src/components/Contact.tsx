@@ -51,10 +51,10 @@ export default function Contact() {
               <div>
                 <p className="font-bold text-heading">{t("Email", "ईमेल")}</p>
                 <a
-                  href="mailto:rushikble7180@gmail.com"
+                  href="mailto:anusayahealthcareservices@gmail.com"
                   className="text-primary font-semibold hover:underline break-all"
                 >
-                  rushikble7180@gmail.com
+                  anusayahealthcareservices@gmail.com
                 </a>
                 <p className="mt-1 text-sm text-gray-400">
                   {t("Email us your enquiry", "तुमची चौकशी ईमेल करा")}
