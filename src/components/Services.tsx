@@ -14,12 +14,10 @@ const featured = [
 ];
 
 const procedures = [
-  ["Vital Signs Monitoring", "महत्त्वाच्या आरोग्य मोजमापांची तपासणी", "BP, pulse, temperature and SpO2 monitoring at home.", "घरी रक्तदाब, नाडी, तापमान आणि SpO2 तपासणी."],
-  ["Blood Sugar Monitoring", "रक्तातील साखर तपासणी", "Regular glucose monitoring and recording.", "रक्तातील साखरेची नियमित तपासणी आणि नोंद."],
-  ["Wound Dressing", "जखमेची ड्रेसिंग", "Surgical wound care and dressing as prescribed.", "डॉक्टरांच्या सल्ल्यानुसार शस्त्रक्रियेच्या जखमेची काळजी आणि ड्रेसिंग."],
-  ["IV & Injection Services", "IV व इंजेक्शन सेवा", "Prescribed IV, IM and SC procedures by qualified nursing staff.", "प्रशिक्षित नर्सिंग कर्मचाऱ्यांकडून डॉक्टरांच्या सल्ल्यानुसार IV, IM आणि SC प्रक्रिया."],
-  ["Catheter Care", "कॅथेटरची काळजी", "Catheter hygiene and urine output monitoring.", "कॅथेटरची स्वच्छता आणि लघवीचे प्रमाण तपासणे."],
-  ["Bedsore Care", "बेडसोरची काळजी", "Pressure area care and prescribed wound management.", "दबाव येणाऱ्या भागांची काळजी आणि डॉक्टरांच्या सल्ल्यानुसार जखमेची देखभाल."],
+  { en: "Vital Signs & Blood Sugar", mr: "आरोग्य मोजमाप व रक्तातील साखर", desc: "BP, pulse, temperature, SpO2 and blood sugar checks at home.", descMr: "घरी रक्तदाब, नाडी, तापमान, SpO2 आणि रक्तातील साखरेची तपासणी.", image: "/services/procedure-vitals.png" },
+  { en: "IV & Injection Care", mr: "IV व इंजेक्शन सेवा", desc: "Prescribed IV fluids and IM, IV or SC injections by trained nursing staff.", descMr: "प्रशिक्षित नर्सिंग कर्मचाऱ्यांकडून डॉक्टरांच्या सल्ल्यानुसार IV द्रव व इंजेक्शन्स.", image: "/services/procedure-iv.png" },
+  { en: "Wound Dressing & Bedsore Care", mr: "जखमेची ड्रेसिंग व बेडसोरची काळजी", desc: "Prescribed dressing, wound care and pressure-area support at home.", descMr: "डॉक्टरांच्या सल्ल्यानुसार घरी ड्रेसिंग, जखमेची आणि बेडसोरची काळजी.", image: "/services/procedure-dressing.png" },
+  { en: "Catheter & Tube Care", mr: "कॅथेटर व ट्यूबची काळजी", desc: "Care for catheters and feeding tubes as advised by the treating clinician.", descMr: "उपचार करणाऱ्या डॉक्टरांच्या सल्ल्यानुसार कॅथेटर व फीडिंग ट्यूबची काळजी.", image: "/services/procedure-tube-care.png" },
 ] as const;
 
 const existing = [
@@ -54,16 +52,22 @@ export default function Services() {
         </article>)}
       </div>
 
-      <div className="mt-20">
-        <div className="text-center"><span className="text-xs font-bold uppercase tracking-wider text-primary">{t("Nursing Visits at Home", "घरी नर्सिंग भेटी")}</span><h2 className="mt-3 text-2xl font-extrabold text-heading sm:text-3xl">{t("Everyday Nursing Procedures", "दैनंदिन नर्सिंग प्रक्रिया")}</h2><p className="mt-3 text-gray-600">{t("Prescribed care and routine checks, explained clearly.", "डॉक्टरांच्या सल्ल्यानुसार सेवा आणि नियमित तपासण्या, सोप्या भाषेत.")}</p></div>
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{procedures.map((item, index) => <article key={item[0]} className="rounded-2xl border border-primary/10 bg-white p-6 shadow-sm"><span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-light text-lg font-bold text-primary">{index + 1}</span><h3 className="mt-4 text-lg font-bold text-heading">{language === "mr" ? item[1] : item[0]}</h3><p className="mt-2 min-h-12 text-sm leading-relaxed text-gray-600">{language === "mr" ? item[3] : item[2]}</p><a href="#booking" className="mt-4 inline-block text-sm font-semibold text-primary hover:underline">{t("Enquire Now", "चौकशी करा")} →</a></article>)}</div>
+      <div className="mt-14 border-t border-primary/10 pt-10">
+        <div className="mb-7"><span className="text-xs font-bold uppercase tracking-wider text-primary">{t("Care at home", "घरी रुग्णसेवा")}</span><h3 className="mt-2 text-2xl font-extrabold text-heading sm:text-3xl">{t("Nursing Procedures at Home", "घरी नर्सिंग प्रक्रिया")}</h3><p className="mt-2 text-gray-600">{t("Specific procedures and routine checks, when your patient needs them.", "रुग्णाच्या गरजेनुसार विशिष्ट नर्सिंग प्रक्रिया आणि नियमित तपासण्या.")}</p></div>
+        <div className="grid gap-6 sm:grid-cols-2">{procedures.map((service) => <article key={service.en} className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+          <div className="relative h-60 overflow-hidden sm:h-72"><Image src={service.image} alt={language === "mr" ? service.mr : service.en} fill className="object-cover object-top transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 640px) 100vw, 50vw" /></div>
+          <div className="p-6"><h4 className="text-xl font-bold text-heading">{language === "mr" ? service.mr : service.en}</h4><p className="mt-3 min-h-12 text-sm leading-relaxed text-gray-600">{language === "mr" ? service.descMr : service.desc}</p><a href="#booking" className="mt-4 inline-flex rounded-full bg-primary-light px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary hover:text-white">{t("Enquire Now", "चौकशी करा")}</a></div>
+        </article>)}</div>
       </div>
 
-      <div id="nursing-care" className="mt-20 scroll-mt-24 rounded-3xl bg-primary-lighter p-6 ring-1 ring-primary/10 sm:p-10">
+      <details id="nursing-care" className="mt-12 scroll-mt-24 rounded-3xl bg-primary-lighter p-6 ring-1 ring-primary/10 sm:p-8">
+        <summary className="cursor-pointer list-none text-center text-lg font-bold text-primary sm:text-xl">{t("View All 33 Nursing & Healthcare Services", "सर्व ३३ नर्सिंग व आरोग्य सेवा पाहा")} <span aria-hidden="true" className="ml-2">⌄</span></summary>
+        <div className="pt-8">
         <div className="mx-auto max-w-2xl text-center"><span className="text-xs font-bold uppercase tracking-wider text-primary">{t("Complete Service List", "सर्व सेवांची यादी")}</span><h2 className="mt-3 text-2xl font-extrabold text-heading sm:text-3xl">{t("Home Nursing Care Services", "घरगुती नर्सिंग सेवा")}</h2><p className="mt-3 text-gray-600">{t("Ask us about the right service and staff availability for your patient.", "तुमच्या रुग्णासाठी योग्य सेवा आणि कर्मचारी उपलब्धतेबद्दल आमच्याशी संपर्क साधा.")}</p></div>
         <div className="mt-8 grid gap-6 lg:grid-cols-2">{nursingServiceGroups.map((group, index) => <div key={group.title} className={`rounded-2xl bg-white p-6 shadow-sm sm:p-8 ${index === 2 ? "lg:col-span-2" : ""}`}><h3 className="text-xl font-bold text-heading">{t(group.title, ["व्यावसायिक घरगुती नर्सिंग सेवा", "घरी नर्सिंग प्रक्रिया", "इतर घरगुती आरोग्य सेवा"][index])}</h3><ul className={`mt-5 grid gap-3 ${index === 2 ? "sm:grid-cols-2 lg:grid-cols-3" : ""}`}>{group.services.map((service) => <li key={service} className="flex items-start gap-3 text-sm text-gray-700 sm:text-base"><span className="mt-0.5 text-primary" aria-hidden>✓</span><span>{language === "mr" ? nursingServiceMarathi[service] : service}</span></li>)}</ul></div>)}</div>
         <div className="mt-8 text-center"><a href="#booking" className="inline-flex rounded-full bg-primary px-8 py-3 font-semibold text-white hover:bg-primary-dark">{t("Book Nursing Care", "नर्सिंग सेवा बुक करा")}</a></div>
-      </div>
+        </div>
+      </details>
 
       <details id="more-services" className="mt-14 scroll-mt-24 rounded-3xl border border-gray-200 bg-white shadow-sm open:pb-8">
         <summary className="cursor-pointer list-none rounded-3xl px-6 py-6 text-center text-lg font-bold text-primary hover:bg-primary-lighter sm:text-xl">{t("Explore More Services", "इतर सेवा पाहा")} <span aria-hidden className="ml-2">⌄</span></summary>
