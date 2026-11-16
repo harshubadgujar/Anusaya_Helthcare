@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollReveal from "@/components/ScrollReveal";
 import { LanguageProvider } from "@/lib/language";
+import BookingPrompt from "@/components/BookingPrompt";
 
 export const metadata: Metadata = {
   title: "Anusaya Health Care Services | Home Nursing in Pune & PCMC",
@@ -62,6 +63,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
           <WhatsAppButton />
+          <BookingPrompt />
           <ScrollReveal />
         </LanguageProvider>
       </body>
