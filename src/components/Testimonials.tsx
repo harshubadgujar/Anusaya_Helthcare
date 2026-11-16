@@ -20,36 +20,12 @@ const testimonials = [
     color: "bg-blue-500",
   },
   {
-    name: "Sneha Kulkarni",
-    location: "Chinchwad, Pune",
-    rating: 5,
-    text: "We hired a baby care taker from AHCS and she was wonderful. Very patient, hygienic, and experienced. Highly satisfied with the service.",
-    textMr: "आम्ही AHCS कडून बाळाची काळजी घेणारी कर्मचारी घेतली. ती संयमी, स्वच्छता पाळणारी आणि अनुभवी होती.",
-    color: "bg-purple-500",
-  },
-  {
-    name: "Amit Deshmukh",
-    location: "Wakad, Pune",
-    rating: 4,
-    text: "Quick response time and very affordable pricing. The physiotherapist they sent was skilled and helped my knee recover much faster.",
-    textMr: "लवकर प्रतिसाद मिळाला आणि दर परवडणारे होते. फिजिओथेरपिस्टच्या मदतीने माझ्या गुडघ्याला फायदा झाला.",
-    color: "bg-teal-500",
-  },
-  {
     name: "Meena Joshi",
     location: "Nigdi, Pune",
     rating: 5,
     text: "The 24/7 availability is a lifesaver. We called late at night for my father's care, and they arranged everything within an hour.",
     textMr: "२४ तास उपलब्धता आमच्यासाठी खूप उपयुक्त ठरली. वडिलांच्या काळजीसाठी रात्री उशिरा संपर्क केला आणि व्यवस्था झाली.",
     color: "bg-amber-500",
-  },
-  {
-    name: "Vikram Singh",
-    location: "Ravet, Pune",
-    rating: 5,
-    text: "Professional, reliable, and truly caring staff. AHCS has been our go-to for home healthcare. Exceptional service every single time.",
-    textMr: "व्यावसायिक, विश्वासार्ह आणि काळजी घेणारे कर्मचारी. घरगुती आरोग्यसेवेसाठी AHCS आमची पसंती आहे.",
-    color: "bg-indigo-500",
   },
 ];
 
@@ -81,13 +57,13 @@ export default function Testimonials() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="reveal text-center max-w-2xl mx-auto mb-16">
           <span className="inline-block rounded-full bg-primary-light px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
-            {t("Testimonials", "ग्राहकांचे अभिप्राय")}
+            {t("Nursing & Patient Care Reviews", "नर्सिंग आणि रुग्णसेवेचे अभिप्राय")}
           </span>
           <h2 className="mt-4 text-3xl font-extrabold text-heading sm:text-4xl lg:text-5xl">
-            {t("What Our Clients Say", "आमचे ग्राहक काय म्हणतात")}
+            {t("What Families Say About Our Care", "आमच्या सेवेबद्दल कुटुंबांचे अनुभव")}
           </h2>
           <p className="mt-4 text-gray-600 text-lg">
-            {t("Hear from families who chose Anusaya Care for their loved ones.", "प्रिय व्यक्तींसाठी Anusaya Care निवडलेल्या कुटुंबांचे अनुभव वाचा.")}
+            {t("Experiences with home nursing and patient care for loved ones.", "प्रिय व्यक्तींसाठी घरगुती नर्सिंग आणि रुग्णसेवा घेतलेल्या कुटुंबांचे अनुभव.")}
           </p>
         </div>
 
