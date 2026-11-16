@@ -7,9 +7,12 @@ export default function Hero() {
   return <section className="relative overflow-hidden bg-gradient-to-br from-heading via-primary-dark to-primary bg-cover bg-[position:22%_center] pt-32 pb-28 sm:pt-40 sm:pb-36" style={{ backgroundImage: 'url("/doctor2.png")' }}>
     <div className="absolute inset-0 bg-gradient-to-r from-[#052a57]/90 via-[#0a3b78]/84 to-[#0b4ea2]/80" aria-hidden />
     <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-5xl">
         <span className="inline-flex rounded-full bg-white/10 px-5 py-2.5 text-sm font-medium text-white ring-1 ring-white/20">{t("Home Nursing Care in Pune & PCMC", "पुणे व पिंपरी-चिंचवडमध्ये घरगुती नर्सिंग सेवा")}</span>
-        <h1 className="mt-6 text-3xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">{t("Professional Home Nursing Care at Your Doorstep", "तुमच्या घरी व्यावसायिक नर्सिंग सेवा")}</h1>
+        <h1 className="mx-auto mt-6 max-w-[54rem] text-center text-3xl font-extrabold leading-tight text-white sm:text-5xl lg:ml-auto lg:mr-0 lg:text-right lg:text-6xl">
+          <span className="block">{t("Professional Home Nursing", "व्यावसायिक घरगुती नर्सिंग")}</span>
+          <span className="shimmer-text mt-1 inline-block bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(90deg, #bae6fd 0%, #ffffff 50%, #67e8f9 100%)" }}>{t("Care at Your Doorstep", "सेवा तुमच्या घरी")}</span>
+        </h1>
         <p className="mt-6 text-lg font-semibold text-blue-100 sm:text-xl">{t("Quality Nursing Care & Patient Support in Pune and PCMC.", "पुणे आणि पिंपरी-चिंचवडमध्ये दर्जेदार नर्सिंग व रुग्णसेवा.")}</p>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-blue-100/90 sm:text-lg">{t("From elderly care to post-hospital recovery, our nursing professionals provide compassionate, personalised care in the comfort of your home.", "ज्येष्ठांची काळजी असो किंवा रुग्णालयातून घरी आल्यानंतरची सेवा, आमचे नर्सिंग कर्मचारी तुमच्या घरी काळजीपूर्वक आणि वैयक्तिक सहाय्य देतात.")}</p>
         <p className="mt-5 text-sm font-bold tracking-wide text-cyan-200 sm:text-base">{t("Your Family's Health. Our Responsibility.", "तुमच्या कुटुंबाचे आरोग्य, आमची जबाबदारी.")}</p>
