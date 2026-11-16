@@ -13,7 +13,7 @@ const otherOptions = [
   ["On-call Home Visit", "मागणीनुसार घरी भेट"], ["CPR Training / Awareness", "सीपीआर प्रशिक्षण"],
 ] as const;
 
-export default function BookingForm() {
+export function BookingFields() {
   const t = useCopy();
   const { language } = useLanguage();
   const [form, setForm] = useState({ name: "", phone: "", location: "", service: "", dateTime: "", notes: "" });
@@ -27,10 +27,7 @@ export default function BookingForm() {
     window.open(`https://wa.me/918805042117?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
   };
   const inputClass = "w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20";
-  return <section id="booking" className="scroll-mt-20 bg-gradient-to-b from-primary-lighter via-primary-light/60 to-white py-20 sm:py-28">
-    <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-      <div className="reveal-left"><span className="rounded-full bg-primary-light px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">{t("Book a Nurse", "नर्स बुक करा")}</span><h2 className="mt-5 text-3xl font-extrabold text-heading sm:text-4xl">{t("Arrange Care at Home", "घरी रुग्णसेवा मिळवा")}</h2><p className="mt-4 text-lg leading-relaxed text-gray-600">{t("Tell us what your patient needs. We will discuss suitable services, shift timings and staff availability with you on WhatsApp.", "रुग्णाला कोणत्या सेवेची गरज आहे ते कळवा. योग्य सेवा, शिफ्टची वेळ आणि कर्मचारी उपलब्धता आम्ही व्हॉट्सॲपवर तुमच्याशी चर्चा करू.")}</p><ul className="mt-8 space-y-4 text-gray-700">{[t("Share patient and service details", "रुग्णाची आणि सेवेची माहिती द्या"), t("Discuss a suitable care plan", "योग्य काळजी योजनेची चर्चा करा"), t("Confirm schedule and staff availability", "वेळ आणि कर्मचारी उपलब्धता निश्चित करा")].map(item => <li key={item} className="flex gap-3"><span className="text-primary">✓</span>{item}</li>)}</ul><div className="mt-9 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm"><p className="text-sm text-gray-500">{t("Prefer to speak with us?", "फोनवर बोलायचे आहे?")}</p><a href="tel:+918805042117" className="text-xl font-bold text-primary">+91 88050 42117</a></div></div>
-      <form onSubmit={submit} className="reveal-right rounded-3xl bg-white p-6 shadow-2xl ring-1 ring-gray-100 sm:p-8">
+  return <form onSubmit={submit} className="rounded-3xl bg-white p-6 shadow-2xl ring-1 ring-gray-100 sm:p-8">
         <div className="grid gap-5 sm:grid-cols-2">
           <label className="sm:col-span-2 text-sm font-semibold text-gray-700">{t("Patient Name *", "रुग्णाचे नाव *")}<input className={`mt-1.5 ${inputClass}`} name="name" required value={form.name} onChange={change} placeholder={t("Enter patient's full name", "रुग्णाचे पूर्ण नाव लिहा")} /></label>
           <label className="text-sm font-semibold text-gray-700">{t("Phone Number *", "फोन नंबर *")}<input className={`mt-1.5 ${inputClass}`} type="tel" name="phone" required value={form.phone} onChange={change} placeholder="+91 XXXXX XXXXX" /></label>
@@ -40,7 +37,15 @@ export default function BookingForm() {
           <label className="sm:col-span-2 text-sm font-semibold text-gray-700">{t("Additional Notes", "अतिरिक्त माहिती")}<textarea className={`mt-1.5 ${inputClass} resize-none`} name="notes" rows={3} value={form.notes} onChange={change} placeholder={t("Patient condition or special requirements", "रुग्णाची स्थिती किंवा विशेष गरजा")} /></label>
         </div>
         <button type="submit" className="mt-6 w-full rounded-xl bg-accent py-4 font-bold text-white shadow-lg hover:bg-accent-dark">{t("Enquire via WhatsApp", "व्हॉट्सॲपवर चौकशी करा")}</button><p className="mt-3 text-center text-xs text-gray-500">{t("Your details will open in WhatsApp for your review before sending.", "माहिती पाठवण्यापूर्वी ती व्हॉट्सॲपवर तपासता येईल.")}</p>
-      </form>
+  </form>;
+}
+
+export default function BookingForm() {
+  const t = useCopy();
+  return <section id="booking" className="scroll-mt-20 bg-gradient-to-b from-primary-lighter via-primary-light/60 to-white py-20 sm:py-28">
+    <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+      <div className="reveal-left"><span className="rounded-full bg-primary-light px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">{t("Book a Nurse", "नर्स बुक करा")}</span><h2 className="mt-5 text-3xl font-extrabold text-heading sm:text-4xl">{t("Arrange Care at Home", "घरी रुग्णसेवा मिळवा")}</h2><p className="mt-4 text-lg leading-relaxed text-gray-600">{t("Tell us what your patient needs. We will discuss suitable services, shift timings and staff availability with you on WhatsApp.", "रुग्णाला कोणत्या सेवेची गरज आहे ते कळवा. योग्य सेवा, शिफ्टची वेळ आणि कर्मचारी उपलब्धता आम्ही व्हॉट्सॲपवर तुमच्याशी चर्चा करू.")}</p><ul className="mt-8 space-y-4 text-gray-700">{[t("Share patient and service details", "रुग्णाची आणि सेवेची माहिती द्या"), t("Discuss a suitable care plan", "योग्य काळजी योजनेची चर्चा करा"), t("Confirm schedule and staff availability", "वेळ आणि कर्मचारी उपलब्धता निश्चित करा")].map(item => <li key={item} className="flex gap-3"><span className="text-primary">✓</span>{item}</li>)}</ul><div className="mt-9 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm"><p className="text-sm text-gray-500">{t("Prefer to speak with us?", "फोनवर बोलायचे आहे?")}</p><a href="tel:+918805042117" className="text-xl font-bold text-primary">+91 88050 42117</a></div></div>
+      <BookingFields />
     </div>
   </section>;
 }
