@@ -54,6 +54,19 @@ body {
   100% { transform: scale(1.5); opacity: 0; }
 }
 
+@keyframes availability-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.availability-dot {
+  animation: availability-blink 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .availability-dot { animation: none; }
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-8px); }

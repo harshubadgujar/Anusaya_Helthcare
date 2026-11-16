@@ -8,7 +8,10 @@ export default function Hero() {
     <div className="absolute inset-0 bg-gradient-to-r from-[#052a57]/90 via-[#0a3b78]/84 to-[#0b4ea2]/80" aria-hidden />
     <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <div className="mx-auto max-w-5xl">
-        <span className="inline-flex rounded-full bg-white/10 px-5 py-2.5 text-sm font-medium text-white ring-1 ring-white/20">{t("Home Nursing Care in Pune & PCMC", "पुणे व पिंपरी-चिंचवडमध्ये घरगुती नर्सिंग सेवा")}</span>
+        <span className="inline-flex max-w-full items-center gap-2 rounded-full bg-white/10 px-4 py-2.5 text-xs font-semibold text-white ring-1 ring-white/20 sm:px-5 sm:text-sm">
+          <span className="availability-dot h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-400 ring-4 ring-emerald-400/20" aria-hidden="true" />
+          {t("Available 24/7 — Serving Pune & PCMC", "२४/७ उपलब्ध — पुणे व पिंपरी-चिंचवडमध्ये सेवा")}
+        </span>
         <h1 className="mx-auto mt-6 max-w-[54rem] text-center text-3xl font-extrabold leading-tight text-white sm:text-5xl lg:ml-auto lg:mr-0 lg:text-right lg:text-6xl">
           <span className="block">{t("Professional Home Nursing", "व्यावसायिक घरगुती नर्सिंग")}</span>
           <span className="shimmer-text mt-1 inline-block bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(90deg, #bae6fd 0%, #ffffff 50%, #67e8f9 100%)" }}>{t("Care at Your Doorstep", "सेवा तुमच्या घरी")}</span>
