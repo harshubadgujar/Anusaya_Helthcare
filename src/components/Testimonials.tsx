@@ -1,9 +1,14 @@
+"use client";
+
+import { useCopy, useLanguage } from "@/lib/language";
+
 const testimonials = [
   {
     name: "Priya Sharma",
     location: "Thergaon, Pune",
     rating: 5,
     text: "Excellent service! The caretaker was very professional and caring with my elderly mother. Would highly recommend AHCS to everyone.",
+    textMr: "उत्तम सेवा! माझ्या आईची काळजी घेणारे कर्मचारी व्यावसायिक आणि आपुलकीने वागणारे होते. मी AHCS ची शिफारस करेन.",
     color: "bg-pink-500",
   },
   {
@@ -11,6 +16,7 @@ const testimonials = [
     location: "Pimpri, Pune",
     rating: 5,
     text: "My father needed post-surgery care and AHCS provided a trained nurse within hours. The care quality was outstanding. Thank you AHCS!",
+    textMr: "माझ्या वडिलांना शस्त्रक्रियेनंतर काळजी हवी होती. AHCS ने प्रशिक्षित नर्सची व्यवस्था केली. सेवेबद्दल धन्यवाद!",
     color: "bg-blue-500",
   },
   {
@@ -18,6 +24,7 @@ const testimonials = [
     location: "Chinchwad, Pune",
     rating: 5,
     text: "We hired a baby care taker from AHCS and she was wonderful. Very patient, hygienic, and experienced. Highly satisfied with the service.",
+    textMr: "आम्ही AHCS कडून बाळाची काळजी घेणारी कर्मचारी घेतली. ती संयमी, स्वच्छता पाळणारी आणि अनुभवी होती.",
     color: "bg-purple-500",
   },
   {
@@ -25,6 +32,7 @@ const testimonials = [
     location: "Wakad, Pune",
     rating: 4,
     text: "Quick response time and very affordable pricing. The physiotherapist they sent was skilled and helped my knee recover much faster.",
+    textMr: "लवकर प्रतिसाद मिळाला आणि दर परवडणारे होते. फिजिओथेरपिस्टच्या मदतीने माझ्या गुडघ्याला फायदा झाला.",
     color: "bg-teal-500",
   },
   {
@@ -32,6 +40,7 @@ const testimonials = [
     location: "Nigdi, Pune",
     rating: 5,
     text: "The 24/7 availability is a lifesaver. We called late at night for my father's care, and they arranged everything within an hour.",
+    textMr: "२४ तास उपलब्धता आमच्यासाठी खूप उपयुक्त ठरली. वडिलांच्या काळजीसाठी रात्री उशिरा संपर्क केला आणि व्यवस्था झाली.",
     color: "bg-amber-500",
   },
   {
@@ -39,6 +48,7 @@ const testimonials = [
     location: "Ravet, Pune",
     rating: 5,
     text: "Professional, reliable, and truly caring staff. AHCS has been our go-to for home healthcare. Exceptional service every single time.",
+    textMr: "व्यावसायिक, विश्वासार्ह आणि काळजी घेणारे कर्मचारी. घरगुती आरोग्यसेवेसाठी AHCS आमची पसंती आहे.",
     color: "bg-indigo-500",
   },
 ];
@@ -61,6 +71,8 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export default function Testimonials() {
+  const t = useCopy();
+  const { language } = useLanguage();
   return (
     <section
       id="testimonials"
@@ -69,14 +81,13 @@ export default function Testimonials() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="reveal text-center max-w-2xl mx-auto mb-16">
           <span className="inline-block rounded-full bg-primary-light px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
-            Testimonials
+            {t("Testimonials", "ग्राहकांचे अभिप्राय")}
           </span>
           <h2 className="mt-4 text-3xl font-extrabold text-heading sm:text-4xl lg:text-5xl">
-            What Our Clients Say
+            {t("What Our Clients Say", "आमचे ग्राहक काय म्हणतात")}
           </h2>
           <p className="mt-4 text-gray-600 text-lg">
-            Hear from families who trust Anusaya Care for their
-            loved ones.
+            {t("Hear from families who chose Anusaya Care for their loved ones.", "प्रिय व्यक्तींसाठी Anusaya Care निवडलेल्या कुटुंबांचे अनुभव वाचा.")}
           </p>
         </div>
 
@@ -92,7 +103,7 @@ export default function Testimonials() {
               </svg>
               <StarRating rating={t.rating} />
               <p className="mt-4 text-gray-600 text-[15px] leading-relaxed">
-                &ldquo;{t.text}&rdquo;
+                &ldquo;{language === "mr" ? t.textMr : t.text}&rdquo;
               </p>
               <div className="mt-6 flex items-center gap-3 pt-5 border-t border-gray-100">
                 <div className={`flex h-11 w-11 items-center justify-center rounded-full ${t.color} text-white font-bold text-sm ring-2 ring-white shadow-md`}>

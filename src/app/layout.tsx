@@ -4,11 +4,12 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollReveal from "@/components/ScrollReveal";
+import { LanguageProvider } from "@/lib/language";
 
 export const metadata: Metadata = {
-  title: "Anusaya Care (AHCS) | 24/7 Home Nursing & Care in Pune",
+  title: "Anusaya Health Care Services | Home Nursing in Pune & PCMC",
   description:
-    "Anusaya Care — Care You Can Trust at Home. Professional 24/7 nursing, elderly care, baby care, physiotherapy & ambulance services in Pune & PCMC.",
+    "Professional home nursing and patient care services in Pune and PCMC, including 12 and 24 hour care, nursing procedures and elderly care.",
   keywords: [
     "Anusaya Care",
     "AHCS",
@@ -56,11 +57,13 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-white text-gray-800 antialiased">
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppButton />
-        <ScrollReveal />
+        <LanguageProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <WhatsAppButton />
+          <ScrollReveal />
+        </LanguageProvider>
       </body>
     </html>
   );

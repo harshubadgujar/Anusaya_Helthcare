@@ -1,253 +1,75 @@
-import Image from "next/image";
-import { nursingServiceGroups } from "@/lib/nursingServices";
+"use client";
 
-const services = [
-  {
-    title: "Patient Care Taker",
-    description: "Dedicated male & female care takers for personalized patient assistance around the clock.",
-    image: "/services/patient-care.jpg",
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Elderly Care Taker",
-    description: "Compassionate elderly care with dignity, comfort, and companionship for your loved ones.",
-    image: "/services/elderly.jpg",
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Home Nursing Care",
-    description: "Professional registered nurses providing expert medical care in the comfort of your home.",
-    image: "/services/nursing.jpg",
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-      </svg>
-    ),
-  },
-  {
-    title: "Bedridden Patient Care",
-    description: "Specialized care for bedridden patients including hygiene, mobility support, and monitoring.",
-    image: "/services/bedridden-care.jpg",
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Baby Care Taker",
-    description: "Trained and caring baby sitters for newborns, infants, and toddlers. Complete support for new parents.",
-    image: "/services/baby-care.jpg",
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Post-Surgical Recovery",
-    description: "Expert post-operative care to ensure smooth recovery with proper wound management and therapy.",
-    image: "/services/post-surgery-care.jpg",
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-      </svg>
-    ),
-  },
-  {
-    title: "Physiotherapy at Home",
-    description: "Licensed physiotherapists delivering rehabilitation & pain management therapy at your home.",
-    image: "/services/physiotherapy.jpg",
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.384 3.065A1 1 0 015 17.39V6.61a1 1 0 011.036-.844l5.384 3.065a1 1 0 010 1.688zM17.5 12h.01" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 7a2 2 0 100 4m0-4v4m6-2a2 2 0 11-4 0 2 2 0 014 0z" />
-      </svg>
-    ),
-  },
-  {
-    title: "First Aid Services",
-    description: "Immediate first aid response and emergency care assistance when you need it most.",
-    image: "/services/first-aid.jpg",
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Ambulance Services",
-    description: "Quick and reliable ambulance services for safe patient transport across Pune.",
-    image: "/services/ambulance.jpg",
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0H21M3.375 14.25h-.375a3 3 0 013-3h.036c.413-2.109 1.62-3.93 3.339-5.108A9.028 9.028 0 0112 5.25c1.205 0 2.363.237 3.426.678" />
-      </svg>
-    ),
-  },
-  {
-    title: "On-call Home Visit",
-    description: "Doctor & nurse home visits on call — get medical consultation without leaving your home.",
-    image: "/services/on-call-home-visit.jpg",
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-      </svg>
-    ),
-  },
-  {
-    title: "CPR Training",
-    description: "Life-saving CPR training & awareness programs for families, offices, and communities.",
-    image: "/services/cpr-training.jpg",
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342" />
-      </svg>
-    ),
-  },
+import Image from "next/image";
+import { useCopy, useLanguage } from "@/lib/language";
+import { nursingServiceGroups, nursingServiceMarathi } from "@/lib/nursingServices";
+
+const featured = [
+  { en: "12 & 24 Hours Home Nursing", mr: "१२ व २४ तास घरगुती नर्सिंग", desc: "Flexible day, night and round-the-clock nursing support based on your patient's needs.", descMr: "रुग्णाच्या गरजेनुसार दिवस, रात्र किंवा संपूर्ण दिवस नर्सिंग सहाय्य.", image: "/services/nursing.jpg" },
+  { en: "Elderly Patient Nursing Care", mr: "ज्येष्ठ रुग्णांसाठी नर्सिंग सेवा", desc: "Attentive support with daily care, medication reminders and health monitoring for older adults.", descMr: "ज्येष्ठांसाठी दैनंदिन काळजी, औषधांची आठवण आणि आरोग्य तपासणी.", image: "/services/elderly.jpg" },
+  { en: "Bedridden Patient Care", mr: "अंथरुणाला खिळलेल्या रुग्णांची काळजी", desc: "Assistance with hygiene, feeding, repositioning and everyday comfort at home.", descMr: "घरात स्वच्छता, आहार, स्थिती बदलणे आणि दैनंदिन आरामासाठी सहाय्य.", image: "/services/bedridden-care.jpg" },
+  { en: "Post-Operative Nursing Care", mr: "शस्त्रक्रियेनंतर नर्सिंग सेवा", desc: "Support after surgery or hospital discharge, including prescribed wound care and vital monitoring.", descMr: "शस्त्रक्रिया किंवा रुग्णालयातून घरी आल्यानंतर जखमेची काळजी आणि आरोग्य तपासणी.", image: "/services/post-surgery-care.jpg" },
+  { en: "Nursing Procedures at Home", mr: "घरी नर्सिंग प्रक्रिया", desc: "Prescribed injections, IV care, wound dressing and routine health checks by trained staff.", descMr: "प्रशिक्षित कर्मचाऱ्यांकडून डॉक्टरांच्या सल्ल्यानुसार इंजेक्शन्स, IV, ड्रेसिंग आणि तपासण्या.", image: "/services/on-call-home-visit.jpg" },
+  { en: "Specialised Patient Care", mr: "विशेष रुग्णसेवा", desc: "Care coordination for stroke, paralysis, dementia, cancer and patients recovering after ICU.", descMr: "स्ट्रोक, अर्धांगवायू, स्मृतिभ्रंश, कर्करोग आणि आयसीयूनंतरच्या रुग्णांसाठी काळजी.", image: "/services/patient-care.jpg" },
 ];
 
+const procedures = [
+  ["Vital Signs Monitoring", "महत्त्वाच्या आरोग्य मोजमापांची तपासणी", "BP, pulse, temperature and SpO2 monitoring at home.", "घरी रक्तदाब, नाडी, तापमान आणि SpO2 तपासणी."],
+  ["Blood Sugar Monitoring", "रक्तातील साखर तपासणी", "Regular glucose monitoring and recording.", "रक्तातील साखरेची नियमित तपासणी आणि नोंद."],
+  ["Wound Dressing", "जखमेची ड्रेसिंग", "Surgical wound care and dressing as prescribed.", "डॉक्टरांच्या सल्ल्यानुसार शस्त्रक्रियेच्या जखमेची काळजी आणि ड्रेसिंग."],
+  ["IV & Injection Services", "IV व इंजेक्शन सेवा", "Prescribed IV, IM and SC procedures by qualified nursing staff.", "प्रशिक्षित नर्सिंग कर्मचाऱ्यांकडून डॉक्टरांच्या सल्ल्यानुसार IV, IM आणि SC प्रक्रिया."],
+  ["Catheter Care", "कॅथेटरची काळजी", "Catheter hygiene and urine output monitoring.", "कॅथेटरची स्वच्छता आणि लघवीचे प्रमाण तपासणे."],
+  ["Bedsore Care", "बेडसोरची काळजी", "Pressure area care and prescribed wound management.", "दबाव येणाऱ्या भागांची काळजी आणि डॉक्टरांच्या सल्ल्यानुसार जखमेची देखभाल."],
+] as const;
+
+const existing = [
+  ["Patient Care Taker", "रुग्ण परिचर", "Personal assistance with daily activities and comfort.", "दैनंदिन कामे आणि आरामासाठी वैयक्तिक सहाय्य.", "/services/patient-care.jpg"],
+  ["Elderly Care Taker", "ज्येष्ठ नागरिक परिचर", "Companionship and daily support for older adults.", "ज्येष्ठांसाठी सहवास आणि दैनंदिन मदत.", "/services/elderly.jpg"],
+  ["Home Nursing Care", "घरगुती नर्सिंग सेवा", "Nursing support at home according to patient needs.", "रुग्णाच्या गरजेनुसार घरी नर्सिंग सहाय्य.", "/services/nursing.jpg"],
+  ["Bedridden Patient Care", "अंथरुणाला खिळलेल्या रुग्णांची काळजी", "Support with hygiene, mobility and monitoring.", "स्वच्छता, हालचाल आणि तपासणीसाठी सहाय्य.", "/services/bedridden-care.jpg"],
+  ["Baby Care Taker", "बाळाची काळजी घेणारे परिचर", "Care support for babies and young children.", "बाळे आणि लहान मुलांसाठी काळजी.", "/services/baby-care.jpg"],
+  ["Post-Surgical Recovery", "शस्त्रक्रियेनंतरची काळजी", "Recovery assistance after an operation.", "शस्त्रक्रियेनंतर बरे होण्यासाठी सहाय्य.", "/services/post-surgery-care.jpg"],
+  ["Physiotherapy at Home", "घरी फिजिओथेरपी", "Rehabilitation and mobility support at home.", "घरी पुनर्वसन आणि हालचालीसाठी सहाय्य.", "/services/physiotherapy.jpg"],
+  ["First Aid Services", "प्रथमोपचार सेवा", "First aid assistance when needed.", "गरजेनुसार प्रथमोपचार सहाय्य.", "/services/first-aid.jpg"],
+  ["Ambulance Services", "रुग्णवाहिका सेवा", "Help coordinating patient transport.", "रुग्ण वाहतुकीसाठी समन्वय.", "/services/ambulance.jpg"],
+  ["On-call Home Visit", "मागणीनुसार घरी भेट", "Arrange a healthcare visit at home.", "आरोग्यसेवेसाठी घरी भेट आयोजित करा.", "/services/on-call-home-visit.jpg"],
+  ["CPR Training", "सीपीआर प्रशिक्षण", "CPR training and awareness programmes.", "सीपीआर प्रशिक्षण आणि जनजागृती कार्यक्रम.", "/services/cpr-training.jpg"],
+] as const;
+
 export default function Services() {
-  return (
-    <section id="services" className="py-20 sm:py-28 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
-        <div className="reveal text-center max-w-2xl mx-auto mb-16">
-          <span className="inline-block rounded-full bg-primary-light px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
-            Our Services
-          </span>
-          <h2 className="mt-4 text-3xl font-extrabold text-heading sm:text-4xl lg:text-5xl">
-            Comprehensive Home Healthcare
-          </h2>
-          <p className="mt-4 text-gray-600 text-lg">
-            From nursing care to ambulance services, we provide a full range of
-            healthcare solutions delivered right to your doorstep.
-          </p>
-          <a
-            href="#nursing-care"
-            className="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/25 hover:bg-primary-dark transition-colors"
-          >
-            Explore Home Nursing Care Services
-          </a>
-        </div>
-
-        {/* Services grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {services.map((service, i) => (
-            <div
-              key={service.title}
-              className="reveal group relative overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-2xl hover:border-primary/30 hover:-translate-y-0.5 transition-all duration-500 card-glow"
-              style={{ transitionDelay: `${i * 50}ms` }}
-            >
-              {service.title === "Elderly Care Taker" ? (
-                <div className="relative w-full h-48 overflow-hidden rounded-t-2xl">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover object-[50%_68%] scale-100 transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                </div>
-              ) : (
-                <div className="relative h-[180px] w-full overflow-hidden rounded-t-xl">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className={`object-cover transition-transform duration-500 group-hover:scale-110 ${
-                      service.title === "Physiotherapy at Home"
-                        ? "object-[50%_22%]"
-                        : "object-center"
-                    }`}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                </div>
-              )}
-
-              <div className="p-6">
-                <div className="mb-4 inline-flex items-center justify-center rounded-xl bg-primary-light p-3.5 text-primary group-hover:bg-primary group-hover:text-white group-hover:shadow-lg group-hover:shadow-primary/30 transition-all duration-300">
-                  {service.icon}
-                </div>
-                <h3 className="text-lg font-bold text-heading group-hover:text-primary transition-colors">
-                  {service.title}
-                </h3>
-                <p className="mt-2 text-sm text-gray-500 leading-relaxed">
-                  {service.description}
-                </p>
-                <a
-                  href="#booking"
-                  className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-primary-light px-4 py-2 text-xs font-semibold text-primary hover:bg-primary hover:text-white hover:shadow-md hover:shadow-primary/30 transition-all duration-300"
-                >
-                  Book Now
-                  <svg className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Detailed nursing services requested by the client */}
-        <div id="nursing-care" className="mt-20 scroll-mt-24 rounded-3xl bg-primary-lighter p-6 sm:p-10 ring-1 ring-primary/10">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="inline-block rounded-full bg-primary-light px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
-              Anusaya Health Care Services
-            </span>
-            <h2 className="mt-4 text-3xl font-extrabold text-heading sm:text-4xl">
-              Home Nursing Care Services
-            </h2>
-            <p className="mt-4 text-gray-600 text-lg">
-              Professional nursing care and procedures at home, tailored to your needs.
-            </p>
-          </div>
-
-          <div className="grid gap-6 lg:grid-cols-2">
-            {nursingServiceGroups.slice(0, 2).map((group) => (
-              <div key={group.title} className="rounded-2xl border border-gray-100 bg-white p-6 sm:p-8 shadow-sm">
-                <h3 className="text-xl font-bold text-heading sm:text-2xl">{group.title}</h3>
-                <ul className="mt-6 grid gap-3">
-                  {group.services.map((service) => (
-                    <li key={service} className="flex items-start gap-3 text-sm sm:text-base text-gray-700">
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-light text-primary" aria-hidden="true">✓</span>
-                      <span>{service}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-6 rounded-2xl border border-gray-100 bg-white p-6 sm:p-8 shadow-sm">
-            <h3 className="text-xl font-bold text-heading sm:text-2xl">
-              {nursingServiceGroups[2].title}
-            </h3>
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {nursingServiceGroups[2].services.map((service) => (
-                <li key={service} className="flex items-start gap-3 text-sm sm:text-base text-gray-700">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-light text-primary" aria-hidden="true">✓</span>
-                  <span>{service}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="mt-8 text-center">
-            <a href="#booking" className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/25 hover:bg-primary-dark transition-colors">
-              Book Nursing Care
-            </a>
-          </div>
-        </div>
+  const t = useCopy();
+  const { language } = useLanguage();
+  return <section id="services" className="bg-white py-20 sm:py-28">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto mb-12 max-w-3xl text-center reveal">
+        <span className="inline-block rounded-full bg-primary-light px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">{t("Our Nursing Services", "आमच्या नर्सिंग सेवा")}</span>
+        <h2 className="mt-4 text-3xl font-extrabold text-heading sm:text-4xl lg:text-5xl">{t("Professional Home Nursing & Patient Care", "व्यावसायिक घरगुती नर्सिंग आणि रुग्णसेवा")}</h2>
+        <p className="mt-4 text-lg text-gray-600">{t("Practical, compassionate care at home. Choose the support that fits your family.", "तुमच्या कुटुंबाच्या गरजेनुसार घरी काळजीपूर्वक आणि व्यावहारिक सेवा निवडा.")}</p>
       </div>
-    </section>
-  );
+
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {featured.map((service) => <article key={service.en} className="reveal group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+          <div className="relative h-48 overflow-hidden"><Image src={service.image} alt={language === "mr" ? service.mr : service.en} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" /></div>
+          <div className="p-6"><h3 className="text-xl font-bold text-heading">{language === "mr" ? service.mr : service.en}</h3><p className="mt-3 min-h-16 text-sm leading-relaxed text-gray-600">{language === "mr" ? service.descMr : service.desc}</p><a href="#booking" className="mt-4 inline-flex rounded-full bg-primary-light px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary hover:text-white">{t("Enquire Now", "चौकशी करा")}</a></div>
+        </article>)}
+      </div>
+
+      <div className="mt-20">
+        <div className="text-center"><span className="text-xs font-bold uppercase tracking-wider text-primary">{t("Nursing Visits at Home", "घरी नर्सिंग भेटी")}</span><h2 className="mt-3 text-2xl font-extrabold text-heading sm:text-3xl">{t("Everyday Nursing Procedures", "दैनंदिन नर्सिंग प्रक्रिया")}</h2><p className="mt-3 text-gray-600">{t("Prescribed care and routine checks, explained clearly.", "डॉक्टरांच्या सल्ल्यानुसार सेवा आणि नियमित तपासण्या, सोप्या भाषेत.")}</p></div>
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{procedures.map((item, index) => <article key={item[0]} className="rounded-2xl border border-primary/10 bg-white p-6 shadow-sm"><span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-light text-lg font-bold text-primary">{index + 1}</span><h3 className="mt-4 text-lg font-bold text-heading">{language === "mr" ? item[1] : item[0]}</h3><p className="mt-2 min-h-12 text-sm leading-relaxed text-gray-600">{language === "mr" ? item[3] : item[2]}</p><a href="#booking" className="mt-4 inline-block text-sm font-semibold text-primary hover:underline">{t("Enquire Now", "चौकशी करा")} →</a></article>)}</div>
+      </div>
+
+      <div id="nursing-care" className="mt-20 scroll-mt-24 rounded-3xl bg-primary-lighter p-6 ring-1 ring-primary/10 sm:p-10">
+        <div className="mx-auto max-w-2xl text-center"><span className="text-xs font-bold uppercase tracking-wider text-primary">{t("Complete Service List", "सर्व सेवांची यादी")}</span><h2 className="mt-3 text-2xl font-extrabold text-heading sm:text-3xl">{t("Home Nursing Care Services", "घरगुती नर्सिंग सेवा")}</h2><p className="mt-3 text-gray-600">{t("Ask us about the right service and staff availability for your patient.", "तुमच्या रुग्णासाठी योग्य सेवा आणि कर्मचारी उपलब्धतेबद्दल आमच्याशी संपर्क साधा.")}</p></div>
+        <div className="mt-8 grid gap-6 lg:grid-cols-2">{nursingServiceGroups.map((group, index) => <div key={group.title} className={`rounded-2xl bg-white p-6 shadow-sm sm:p-8 ${index === 2 ? "lg:col-span-2" : ""}`}><h3 className="text-xl font-bold text-heading">{t(group.title, ["व्यावसायिक घरगुती नर्सिंग सेवा", "घरी नर्सिंग प्रक्रिया", "इतर घरगुती आरोग्य सेवा"][index])}</h3><ul className={`mt-5 grid gap-3 ${index === 2 ? "sm:grid-cols-2 lg:grid-cols-3" : ""}`}>{group.services.map((service) => <li key={service} className="flex items-start gap-3 text-sm text-gray-700 sm:text-base"><span className="mt-0.5 text-primary" aria-hidden>✓</span><span>{language === "mr" ? nursingServiceMarathi[service] : service}</span></li>)}</ul></div>)}</div>
+        <div className="mt-8 text-center"><a href="#booking" className="inline-flex rounded-full bg-primary px-8 py-3 font-semibold text-white hover:bg-primary-dark">{t("Book Nursing Care", "नर्सिंग सेवा बुक करा")}</a></div>
+      </div>
+
+      <details id="more-services" className="mt-14 scroll-mt-24 rounded-3xl border border-gray-200 bg-white shadow-sm open:pb-8">
+        <summary className="cursor-pointer list-none rounded-3xl px-6 py-6 text-center text-lg font-bold text-primary hover:bg-primary-lighter sm:text-xl">{t("Explore More Services", "इतर सेवा पाहा")} <span aria-hidden className="ml-2">⌄</span></summary>
+        <p className="px-6 pb-6 text-center text-gray-600">{t("Our existing care and support services remain available.", "आमच्या पूर्वीच्या काळजी आणि सहाय्य सेवा उपलब्ध आहेत.")}</p>
+        <div className="grid gap-5 px-6 sm:grid-cols-2 lg:grid-cols-3">{existing.map((service) => <article key={service[0]} className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm"><div className="relative h-40"><Image src={service[4]} alt={language === "mr" ? service[1] : service[0]} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" /></div><div className="p-5"><h3 className="font-bold text-heading">{language === "mr" ? service[1] : service[0]}</h3><p className="mt-2 text-sm text-gray-600">{language === "mr" ? service[3] : service[2]}</p><a href="#booking" className="mt-4 inline-block text-sm font-semibold text-primary hover:underline">{t("Enquire Now", "चौकशी करा")} →</a></div></article>)}</div>
+      </details>
+    </div>
+  </section>;
 }

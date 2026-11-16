@@ -1,9 +1,12 @@
 "use client";
 
+import { useCopy } from "@/lib/language";
+
 export default function WhatsAppButton() {
+  const t = useCopy();
   const phoneNumber = "918805042117";
   const message = encodeURIComponent(
-    "Hello, I want to book a healthcare service. Please share the details."
+    t("Hello, I would like to enquire about home nursing care. Please share the details.", "नमस्कार, मला घरगुती नर्सिंग सेवेबद्दल चौकशी करायची आहे. कृपया माहिती द्या.")
   );
 
   return (
@@ -11,7 +14,7 @@ export default function WhatsAppButton() {
       href={`https://wa.me/${phoneNumber}?text=${message}`}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat on WhatsApp"
+      aria-label={t("Chat on WhatsApp", "व्हॉट्सॲपवर संपर्क करा")}
       className="pulse-ring fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-accent text-white shadow-2xl shadow-accent/40 hover:bg-accent-dark hover:scale-110 transition-all duration-300"
     >
       <svg className="h-7 w-7" viewBox="0 0 24 24" fill="currentColor">

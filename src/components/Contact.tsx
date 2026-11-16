@@ -1,17 +1,21 @@
+"use client";
+
+import { useCopy } from "@/lib/language";
+
 export default function Contact() {
+  const t = useCopy();
   return (
     <section id="contact" className="py-20 sm:py-28 bg-gradient-to-b from-white to-primary-lighter">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="reveal text-center max-w-2xl mx-auto mb-16">
           <span className="inline-block rounded-full bg-primary-light px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
-            Contact Us
+            {t("Contact Us", "संपर्क करा")}
           </span>
           <h2 className="mt-4 text-3xl font-extrabold text-heading sm:text-4xl lg:text-5xl">
-            Get in Touch
+            {t("Get in Touch", "आमच्याशी संपर्क साधा")}
           </h2>
           <p className="mt-4 text-gray-600 text-lg">
-            Reach out to us anytime. We&apos;re here to help you and your loved
-            ones with the best healthcare services.
+            {t("Contact us to discuss home nursing and patient care for your loved ones.", "तुमच्या प्रिय व्यक्तीसाठी घरगुती नर्सिंग आणि रुग्णसेवेबद्दल आमच्याशी संपर्क साधा.")}
           </p>
         </div>
 
@@ -26,14 +30,14 @@ export default function Contact() {
                 </svg>
               </div>
               <div>
-                <p className="font-bold text-heading">Phone</p>
+                <p className="font-bold text-heading">{t("Phone", "फोन")}</p>
                 <a
                   href="tel:+918805042117"
                   className="text-primary font-semibold hover:underline text-lg"
                 >
                   +91 88050 42117
                 </a>
-                <p className="mt-1 text-sm text-gray-400">Available 24/7</p>
+                <p className="mt-1 text-sm text-gray-400">{t("Call for availability", "उपलब्धतेसाठी कॉल करा")}</p>
               </div>
             </div>
 
@@ -45,7 +49,7 @@ export default function Contact() {
                 </svg>
               </div>
               <div>
-                <p className="font-bold text-heading">Email</p>
+                <p className="font-bold text-heading">{t("Email", "ईमेल")}</p>
                 <a
                   href="mailto:rushikble7180@gmail.com"
                   className="text-primary font-semibold hover:underline break-all"
@@ -53,7 +57,7 @@ export default function Contact() {
                   rushikble7180@gmail.com
                 </a>
                 <p className="mt-1 text-sm text-gray-400">
-                  We reply within a few hours
+                  {t("Email us your enquiry", "तुमची चौकशी ईमेल करा")}
                 </p>
               </div>
             </div>
@@ -67,13 +71,9 @@ export default function Contact() {
                 </svg>
               </div>
               <div>
-                <p className="font-bold text-heading">Address</p>
+                <p className="font-bold text-heading">{t("Address", "पत्ता")}</p>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Condominium complex, 6, Gujar Nagar, Sai Colony,
-                  <br />
-                  Thergaon, Pimpri-Chinchwad,
-                  <br />
-                  Maharashtra 411033
+                  {t("Condominium complex, 6, Gujar Nagar, Sai Colony, Thergaon, Pimpri-Chinchwad, Maharashtra 411033", "कॉनडोमिनियम कॉम्प्लेक्स, ६, गुजर नगर, साई कॉलनी, थेरगाव, पिंपरी-चिंचवड, महाराष्ट्र ४११०३३")}
                 </p>
               </div>
             </div>
@@ -86,7 +86,7 @@ export default function Contact() {
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
               </svg>
-              Call Now — Get Instant Help
+              {t("Call Now", "आता कॉल करा")}
             </a>
           </div>
 

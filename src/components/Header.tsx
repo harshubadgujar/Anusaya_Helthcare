@@ -1,128 +1,32 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-
-const navLinks = [
-  { href: "#services", label: "Services" },
-  { href: "#booking", label: "Book Now" },
-  { href: "#why-us", label: "Why Us" },
-  { href: "#testimonials", label: "Reviews" },
-  { href: "#contact", label: "Contact" },
-];
+import { useState } from "react";
+import { useCopy, useLanguage } from "@/lib/language";
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md"
-          : "bg-white/80 backdrop-blur-sm"
-      }`}
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white font-extrabold text-lg shadow-md shadow-primary/20">
-            A
-          </div>
-          <div className="leading-tight">
-            <span className="block text-[17px] font-extrabold text-heading tracking-tight">Anusaya Care</span>
-            <span className="block text-[9px] font-medium text-primary/70 tracking-wider uppercase">
-              Care You Can Trust at Home
-            </span>
-          </div>
-        </Link>
-
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:text-primary hover:bg-primary-light transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="tel:+918805042117"
-            className="ml-3 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/25 hover:bg-primary-dark transition-colors"
-          >
-            <PhoneIcon />
-            Call Now
-          </a>
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <CloseIcon /> : <MenuIcon />}
-        </button>
-      </div>
-
-      {/* Mobile Nav */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-96 border-t border-gray-100" : "max-h-0"
-        }`}
-      >
-        <nav className="flex flex-col px-4 py-3 bg-white space-y-1">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="px-4 py-3 text-sm font-medium text-gray-700 rounded-lg hover:bg-primary-light hover:text-primary transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="tel:+918805042117"
-            className="mx-4 mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white"
-          >
-            <PhoneIcon />
-            Call Now
-          </a>
-        </nav>
-      </div>
-    </header>
-  );
-}
-
-function PhoneIcon() {
-  return (
-    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-    </svg>
-  );
-}
-
-function MenuIcon() {
-  return (
-    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-    </svg>
-  );
-}
-
-function CloseIcon() {
-  return (
-    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-    </svg>
-  );
+  const [open, setOpen] = useState(false);
+  const { language, setLanguage } = useLanguage();
+  const t = useCopy();
+  const links = [
+    ["#services", t("Services", "सेवा")],
+    ["#booking", t("Book Now", "बुक करा")],
+    ["#why-us", t("Why Us", "आम्हालाच का निवडावे")],
+    ["#testimonials", t("Reviews", "अभिप्राय")],
+    ["#contact", t("Contact", "संपर्क")],
+  ];
+  const switcher = <div role="group" aria-label={t("Choose language", "भाषा निवडा")} className="inline-flex rounded-full border border-primary/20 bg-primary-lighter p-1 text-xs font-bold">
+    <button type="button" onClick={() => setLanguage("en")} aria-pressed={language === "en"} className={`rounded-full px-3 py-1.5 ${language === "en" ? "bg-primary text-white" : "text-primary"}`}>English</button>
+    <button type="button" onClick={() => setLanguage("mr")} aria-pressed={language === "mr"} className={`rounded-full px-3 py-1.5 ${language === "mr" ? "bg-primary text-white" : "text-primary"}`}>मराठी</button>
+  </div>;
+  return <header className="fixed inset-x-0 top-0 z-50 border-b border-gray-100 bg-white/95 shadow-sm backdrop-blur-md">
+    <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
+      <a href="#" className="flex shrink-0 items-center gap-2.5">
+        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-lg font-extrabold text-white">A</span>
+        <span className="leading-tight"><span className="block text-[17px] font-extrabold text-heading">Anusaya Care</span><span className="block text-[9px] font-medium uppercase tracking-wider text-primary/70">{t("Care You Can Trust at Home", "घरी विश्वासार्ह काळजी")}</span></span>
+      </a>
+      <nav className="hidden items-center gap-1 md:flex">{links.map(([href, label]) => <a key={href} href={href} className="rounded-lg px-2.5 py-2 text-sm font-medium text-gray-700 hover:bg-primary-light hover:text-primary">{label}</a>)}{switcher}<a href="tel:+918805042117" className="ml-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-white">{t("Call Now", "कॉल करा")}</a></nav>
+      <div className="flex items-center gap-2 md:hidden">{switcher}<button type="button" onClick={() => setOpen(!open)} aria-label={t("Toggle menu", "मेनू उघडा किंवा बंद करा")} aria-expanded={open} className="rounded-lg p-2 text-heading hover:bg-primary-light"><svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d={open ? "M6 6l12 12M18 6L6 18" : "M4 6h16M4 12h16M4 18h16"}/></svg></button></div>
+    </div>
+    {open && <nav className="flex flex-col border-t bg-white px-4 py-3 md:hidden">{links.map(([href, label]) => <a key={href} href={href} onClick={() => setOpen(false)} className="rounded-lg px-4 py-3 text-sm font-medium text-gray-700 hover:bg-primary-light">{label}</a>)}<a href="tel:+918805042117" className="mt-2 rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white">{t("Call Now", "कॉल करा")}</a></nav>}
+  </header>;
 }
