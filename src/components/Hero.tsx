@@ -24,8 +24,21 @@ export default function Hero() {
           <a href="#services" className="rounded-full bg-white/10 px-9 py-4 font-bold text-white ring-1 ring-white/30 hover:bg-white/20">{t("Explore Nursing Services", "नर्सिंग सेवा पाहा")}</a>
           <a href="tel:+918805042117" className="rounded-full bg-white/10 px-9 py-4 font-bold text-white ring-1 ring-white/30 hover:bg-white/20">{t("Call Now", "आता कॉल करा")}</a>
         </div>
-        <div className="mt-12 flex flex-wrap justify-center gap-3 text-sm text-white/90">
-          {[t("12 & 24 Hour Care", "१२ व २४ तास सेवा"), t("Male & Female Staff", "पुरुष व महिला कर्मचारी"), t("Care at Home", "घरी रुग्णसेवा")].map(item => <span key={item} className="rounded-full bg-white/10 px-4 py-2 ring-1 ring-white/10">✓ {item}</span>)}
+        <div className="mt-12 flex flex-wrap justify-center gap-2 text-xs text-white/90 sm:gap-3 sm:text-sm">
+          {[
+            ["🟢", t("24/7 Available", "२४/७ उपलब्ध")],
+            ["✅", t("Verified Staff", "पडताळलेले कर्मचारी")],
+            ["⚡", t("Fast Response", "जलद प्रतिसाद")],
+            ["🛡️", t("Trusted Care", "विश्वासार्ह सेवा")],
+          ].map(([icon, label]) => <span key={label} className="rounded-full bg-white/10 px-3 py-2 ring-1 ring-white/10 sm:px-4"><span aria-hidden="true">{icon}</span> {label}</span>)}
+        </div>
+        <div className="mx-auto mt-8 grid max-w-2xl grid-cols-2 gap-x-4 gap-y-6 text-center sm:grid-cols-4 sm:gap-4">
+          {[
+            ["3+", t("Years Experience", "वर्षांचा अनुभव")],
+            ["500+", t("Patients Served", "रुग्णांना सेवा")],
+            ["24/7", t("Available", "उपलब्ध")],
+            ["50+", t("Trained Staff", "प्रशिक्षित कर्मचारी")],
+          ].map(([value, label]) => <div key={value} className="min-w-0"><p className="text-2xl font-extrabold leading-none text-white sm:text-3xl">{value}</p><p className="mt-1 text-xs text-blue-100/80 sm:text-sm">{label}</p></div>)}
         </div>
       </div>
     </div>
