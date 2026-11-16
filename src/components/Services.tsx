@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { nursingServiceGroups } from "@/lib/nursingServices";
 
 const services = [
   {
@@ -130,6 +131,12 @@ export default function Services() {
             From nursing care to ambulance services, we provide a full range of
             healthcare solutions delivered right to your doorstep.
           </p>
+          <a
+            href="#nursing-care"
+            className="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/25 hover:bg-primary-dark transition-colors"
+          >
+            Explore Home Nursing Care Services
+          </a>
         </div>
 
         {/* Services grid */}
@@ -188,6 +195,57 @@ export default function Services() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Detailed nursing services requested by the client */}
+        <div id="nursing-care" className="mt-20 scroll-mt-24 rounded-3xl bg-primary-lighter p-6 sm:p-10 ring-1 ring-primary/10">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="inline-block rounded-full bg-primary-light px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+              Anusaya Health Care Services
+            </span>
+            <h2 className="mt-4 text-3xl font-extrabold text-heading sm:text-4xl">
+              Home Nursing Care Services
+            </h2>
+            <p className="mt-4 text-gray-600 text-lg">
+              Professional nursing care and procedures at home, tailored to your needs.
+            </p>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            {nursingServiceGroups.slice(0, 2).map((group) => (
+              <div key={group.title} className="rounded-2xl border border-gray-100 bg-white p-6 sm:p-8 shadow-sm">
+                <h3 className="text-xl font-bold text-heading sm:text-2xl">{group.title}</h3>
+                <ul className="mt-6 grid gap-3">
+                  {group.services.map((service) => (
+                    <li key={service} className="flex items-start gap-3 text-sm sm:text-base text-gray-700">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-light text-primary" aria-hidden="true">✓</span>
+                      <span>{service}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 rounded-2xl border border-gray-100 bg-white p-6 sm:p-8 shadow-sm">
+            <h3 className="text-xl font-bold text-heading sm:text-2xl">
+              {nursingServiceGroups[2].title}
+            </h3>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {nursingServiceGroups[2].services.map((service) => (
+                <li key={service} className="flex items-start gap-3 text-sm sm:text-base text-gray-700">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-light text-primary" aria-hidden="true">✓</span>
+                  <span>{service}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-8 text-center">
+            <a href="#booking" className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/25 hover:bg-primary-dark transition-colors">
+              Book Nursing Care
+            </a>
+          </div>
         </div>
       </div>
     </section>

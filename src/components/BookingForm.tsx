@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { nursingServiceGroups } from "@/lib/nursingServices";
 
 const serviceOptions = [
   "Patient Care Taker (Male)",
@@ -16,6 +17,10 @@ const serviceOptions = [
   "On-call Home Visit",
   "CPR Training / Awareness",
 ];
+
+const nursingServiceNames = new Set<string>(
+  nursingServiceGroups.flatMap((group) => group.services)
+);
 
 const PHONE_NUMBER = "918805042117";
 
@@ -203,10 +208,19 @@ export default function BookingForm() {
                   className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
                 >
                   <option value="">Select a service</option>
-                  {serviceOptions.map((s) => (
+                  {serviceOptions.filter((service) => !nursingServiceNames.has(service)).map((s) => (
                     <option key={s} value={s}>
                       {s}
                     </option>
+                  ))}
+                  {nursingServiceGroups.map((group) => (
+                    <optgroup key={group.title} label={group.title}>
+                      {group.services.map((service) => (
+                        <option key={service} value={service}>
+                          {service}
+                        </option>
+                      ))}
+                    </optgroup>
                   ))}
                 </select>
               </div>
