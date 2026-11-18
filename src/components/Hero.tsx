@@ -26,6 +26,10 @@ export default function Hero() {
         <p className="mt-6 text-lg font-semibold text-blue-100 sm:text-xl">{t("Quality Nursing Care & Patient Support in Pune and PCMC.", "पुणे आणि पिंपरी-चिंचवडमध्ये दर्जेदार नर्सिंग व रुग्णसेवा.")}</p>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-blue-100/90 sm:text-lg">{t("From elderly care to post-hospital recovery, our nursing professionals provide compassionate, personalised care in the comfort of your home.", "ज्येष्ठांची काळजी असो किंवा रुग्णालयातून घरी आल्यानंतरची सेवा, आमचे नर्सिंग कर्मचारी तुमच्या घरी काळजीपूर्वक आणि वैयक्तिक सहाय्य देतात.")}</p>
         <p className="mt-5 text-sm font-bold tracking-wide text-cyan-200 sm:text-base">{t("Your Family's Health. Our Responsibility.", "तुमच्या कुटुंबाचे आरोग्य, आमची जबाबदारी.")}</p>
+        <a href="tel:+918805042117" className="mt-5 inline-flex max-w-full items-center gap-2 rounded-full bg-red-500/25 px-4 py-2 text-xs font-semibold text-red-100 ring-1 ring-red-300/40 hover:bg-red-500/35 sm:text-sm">
+          <span aria-hidden="true">⚠</span>
+          {t("Emergency? Get Care Within 30 Minutes", "आपत्कालीन गरज? ३० मिनिटांत सेवा मिळवा")}
+        </a>
         <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
           <a href="#booking" className="rounded-full bg-white px-9 py-4 font-bold text-primary shadow-xl hover:bg-gray-50">{t("Book a Nurse", "नर्स बुक करा")}</a>
           <a href="#services" className="rounded-full bg-white/10 px-9 py-4 font-bold text-white ring-1 ring-white/30 hover:bg-white/20">{t("Explore Nursing Services", "नर्सिंग सेवा पाहा")}</a>
