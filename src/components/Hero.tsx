@@ -7,7 +7,7 @@ export default function Hero() {
   const t = useCopy();
   return <section className="relative overflow-hidden bg-gradient-to-br from-heading via-primary-dark to-primary bg-cover bg-[position:22%_center] pt-32 pb-28 sm:pt-40 sm:pb-36" style={{ backgroundImage: 'url("/doctor2.png")' }}>
     <div className="absolute inset-0 bg-gradient-to-r from-[#052a57]/90 via-[#0a3b78]/84 to-[#0b4ea2]/80" aria-hidden />
-    <div className="pointer-events-none absolute right-[-6rem] top-[18%] w-72 opacity-15 sm:right-[-4rem] sm:top-[14%] sm:w-[26rem] lg:right-[-3rem] lg:top-[12%] lg:w-[36rem]" aria-hidden="true">
+    <div className="pointer-events-none absolute right-4 top-[24%] w-40 opacity-10 sm:right-[6%] sm:top-[22%] sm:w-64 lg:right-[10%] lg:top-[20%] lg:w-80" aria-hidden="true">
       <Image src="/anusaya-logo.jpeg" alt="" width={800} height={800} className="h-auto w-full rounded-full" />
     </div>
     <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
@@ -16,10 +16,10 @@ export default function Hero() {
           <span className="availability-dot h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-400 ring-4 ring-emerald-400/20" aria-hidden="true" />
           {t("Available 24/7 — Serving Pune & PCMC", "२४/७ उपलब्ध — पुणे व पिंपरी-चिंचवडमध्ये सेवा")}
         </span>
-        <p className="mx-auto mt-7 max-w-[54rem] text-center text-lg font-bold tracking-wide text-white sm:text-2xl lg:ml-auto lg:mr-0 lg:text-right">
+        <p className="mx-auto mt-7 max-w-[54rem] text-center text-base font-bold tracking-wide text-cyan-100 sm:text-xl">
           {t("Anusaya Health Care Services", "अनुसया हेल्थ केअर सर्व्हिसेस")}
         </p>
-        <h1 className="mx-auto mt-3 max-w-[54rem] text-center text-3xl font-extrabold leading-tight text-white sm:text-5xl lg:ml-auto lg:mr-0 lg:text-right lg:text-6xl">
+        <h1 className="mx-auto mt-3 max-w-[58rem] text-center text-3xl font-extrabold leading-tight text-white sm:text-5xl lg:text-[3.5rem]">
           <span className="block">{t("Professional Home Nursing", "व्यावसायिक घरगुती नर्सिंग")}</span>
           <span className="shimmer-text mt-1 inline-block bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(90deg, #bae6fd 0%, #ffffff 50%, #67e8f9 100%)" }}>{t("Care at Your Doorstep", "सेवा तुमच्या घरी")}</span>
         </h1>
