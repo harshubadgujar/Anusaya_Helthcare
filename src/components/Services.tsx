@@ -34,6 +34,10 @@ const existing = [
   ["CPR Training", "सीपीआर प्रशिक्षण", "CPR training and awareness programmes.", "सीपीआर प्रशिक्षण आणि जनजागृती कार्यक्रम.", "/services/cpr-training.jpg"],
 ] as const;
 
+function openBookingForm() {
+  window.dispatchEvent(new Event("open-booking-form"));
+}
+
 export default function Services() {
   const t = useCopy();
   const { language } = useLanguage();
@@ -48,7 +52,7 @@ export default function Services() {
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {featured.map((service) => <article key={service.en} className="reveal group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
           <div className="relative h-48 overflow-hidden"><Image src={service.image} alt={language === "mr" ? service.mr : service.en} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" /></div>
-          <div className="p-6"><h3 className="text-xl font-bold text-heading">{language === "mr" ? service.mr : service.en}</h3><p className="mt-3 min-h-16 text-sm leading-relaxed text-gray-600">{language === "mr" ? service.descMr : service.desc}</p><a href="#booking" className="mt-4 inline-flex rounded-full bg-primary-light px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary hover:text-white">{t("Enquire Now", "चौकशी करा")}</a></div>
+          <div className="p-6"><h3 className="text-xl font-bold text-heading">{language === "mr" ? service.mr : service.en}</h3><p className="mt-3 min-h-16 text-sm leading-relaxed text-gray-600">{language === "mr" ? service.descMr : service.desc}</p><button type="button" onClick={openBookingForm} aria-haspopup="dialog" className="mt-4 inline-flex rounded-full bg-primary-light px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary hover:text-white">{t("Book Now", "आता बुक करा")}</button></div>
         </article>)}
       </div>
 
@@ -56,7 +60,7 @@ export default function Services() {
         <div className="mb-7"><span className="text-xs font-bold uppercase tracking-wider text-primary">{t("Care at home", "घरी रुग्णसेवा")}</span><h3 className="mt-2 text-2xl font-extrabold text-heading sm:text-3xl">{t("Nursing Procedures at Home", "घरी नर्सिंग प्रक्रिया")}</h3><p className="mt-2 text-gray-600">{t("Specific procedures and routine checks, when your patient needs them.", "रुग्णाच्या गरजेनुसार विशिष्ट नर्सिंग प्रक्रिया आणि नियमित तपासण्या.")}</p></div>
         <div className="grid gap-6 sm:grid-cols-2">{procedures.map((service) => <article key={service.en} className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
           <div className="relative h-60 overflow-hidden sm:h-72"><Image src={service.image} alt={language === "mr" ? service.mr : service.en} fill className="object-cover object-top transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 640px) 100vw, 50vw" /></div>
-          <div className="p-6"><h4 className="text-xl font-bold text-heading">{language === "mr" ? service.mr : service.en}</h4><p className="mt-3 min-h-12 text-sm leading-relaxed text-gray-600">{language === "mr" ? service.descMr : service.desc}</p><a href="#booking" className="mt-4 inline-flex rounded-full bg-primary-light px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary hover:text-white">{t("Enquire Now", "चौकशी करा")}</a></div>
+          <div className="p-6"><h4 className="text-xl font-bold text-heading">{language === "mr" ? service.mr : service.en}</h4><p className="mt-3 min-h-12 text-sm leading-relaxed text-gray-600">{language === "mr" ? service.descMr : service.desc}</p><button type="button" onClick={openBookingForm} aria-haspopup="dialog" className="mt-4 inline-flex rounded-full bg-primary-light px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary hover:text-white">{t("Book Now", "आता बुक करा")}</button></div>
         </article>)}</div>
       </div>
 
@@ -72,7 +76,7 @@ export default function Services() {
       <details id="more-services" className="mt-14 scroll-mt-24 rounded-3xl border border-gray-200 bg-white shadow-sm open:pb-8">
         <summary className="cursor-pointer list-none rounded-3xl px-6 py-6 text-center text-lg font-bold text-primary hover:bg-primary-lighter sm:text-xl">{t("Explore More Services", "इतर सेवा पाहा")} <span aria-hidden className="ml-2">⌄</span></summary>
         <p className="px-6 pb-6 text-center text-gray-600">{t("Our existing care and support services remain available.", "आमच्या पूर्वीच्या काळजी आणि सहाय्य सेवा उपलब्ध आहेत.")}</p>
-        <div className="grid gap-5 px-6 sm:grid-cols-2 lg:grid-cols-3">{existing.map((service) => <article key={service[0]} className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm"><div className="relative h-40"><Image src={service[4]} alt={language === "mr" ? service[1] : service[0]} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" /></div><div className="p-5"><h3 className="font-bold text-heading">{language === "mr" ? service[1] : service[0]}</h3><p className="mt-2 text-sm text-gray-600">{language === "mr" ? service[3] : service[2]}</p><a href="#booking" className="mt-4 inline-block text-sm font-semibold text-primary hover:underline">{t("Enquire Now", "चौकशी करा")} →</a></div></article>)}</div>
+        <div className="grid gap-5 px-6 sm:grid-cols-2 lg:grid-cols-3">{existing.map((service) => <article key={service[0]} className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm"><div className="relative h-40"><Image src={service[4]} alt={language === "mr" ? service[1] : service[0]} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" /></div><div className="p-5"><h3 className="font-bold text-heading">{language === "mr" ? service[1] : service[0]}</h3><p className="mt-2 text-sm text-gray-600">{language === "mr" ? service[3] : service[2]}</p><button type="button" onClick={openBookingForm} aria-haspopup="dialog" className="mt-4 inline-block text-sm font-semibold text-primary hover:underline">{t("Book Now", "आता बुक करा")} →</button></div></article>)}</div>
       </details>
     </div>
   </section>;

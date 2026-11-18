@@ -9,9 +9,14 @@ export default function BookingPrompt() {
   const t = useCopy();
 
   useEffect(() => {
+    const open = () => {
+      if (!dialogRef.current?.open) dialogRef.current?.showModal();
+    };
+    window.addEventListener("open-booking-form", open);
     if (window.location.hash !== "#booking") {
-      dialogRef.current?.showModal();
+      open();
     }
+    return () => window.removeEventListener("open-booking-form", open);
   }, []);
 
   return (
