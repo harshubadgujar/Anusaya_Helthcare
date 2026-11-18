@@ -1,18 +1,25 @@
 "use client";
 
+import Image from "next/image";
 import { useCopy } from "@/lib/language";
 
 export default function Hero() {
   const t = useCopy();
   return <section className="relative overflow-hidden bg-gradient-to-br from-heading via-primary-dark to-primary bg-cover bg-[position:22%_center] pt-32 pb-28 sm:pt-40 sm:pb-36" style={{ backgroundImage: 'url("/doctor2.png")' }}>
     <div className="absolute inset-0 bg-gradient-to-r from-[#052a57]/90 via-[#0a3b78]/84 to-[#0b4ea2]/80" aria-hidden />
+    <div className="pointer-events-none absolute right-[-6rem] top-[18%] w-72 opacity-15 sm:right-[-4rem] sm:top-[14%] sm:w-[26rem] lg:right-[-3rem] lg:top-[12%] lg:w-[36rem]" aria-hidden="true">
+      <Image src="/anusaya-logo.jpeg" alt="" width={800} height={800} className="h-auto w-full rounded-full" />
+    </div>
     <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <div className="mx-auto max-w-5xl">
         <span className="inline-flex max-w-full items-center gap-2 rounded-full bg-white/10 px-4 py-2.5 text-xs font-semibold text-white ring-1 ring-white/20 sm:px-5 sm:text-sm">
           <span className="availability-dot h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-400 ring-4 ring-emerald-400/20" aria-hidden="true" />
           {t("Available 24/7 — Serving Pune & PCMC", "२४/७ उपलब्ध — पुणे व पिंपरी-चिंचवडमध्ये सेवा")}
         </span>
-        <h1 className="mx-auto mt-6 max-w-[54rem] text-center text-3xl font-extrabold leading-tight text-white sm:text-5xl lg:ml-auto lg:mr-0 lg:text-right lg:text-6xl">
+        <p className="mx-auto mt-7 max-w-[54rem] text-center text-lg font-bold tracking-wide text-white sm:text-2xl lg:ml-auto lg:mr-0 lg:text-right">
+          {t("Anusaya Health Care Services", "अनुसया हेल्थ केअर सर्व्हिसेस")}
+        </p>
+        <h1 className="mx-auto mt-3 max-w-[54rem] text-center text-3xl font-extrabold leading-tight text-white sm:text-5xl lg:ml-auto lg:mr-0 lg:text-right lg:text-6xl">
           <span className="block">{t("Professional Home Nursing", "व्यावसायिक घरगुती नर्सिंग")}</span>
           <span className="shimmer-text mt-1 inline-block bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(90deg, #bae6fd 0%, #ffffff 50%, #67e8f9 100%)" }}>{t("Care at Your Doorstep", "सेवा तुमच्या घरी")}</span>
         </h1>
