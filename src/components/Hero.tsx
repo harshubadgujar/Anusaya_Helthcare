@@ -7,11 +7,11 @@ export default function Hero() {
   const t = useCopy();
   return <section className="relative overflow-hidden bg-gradient-to-br from-heading via-primary-dark to-primary bg-cover bg-[position:22%_center] pt-32 pb-28 sm:pt-40 sm:pb-36" style={{ backgroundImage: 'url("/doctor2.png")' }}>
     <div className="absolute inset-0 bg-gradient-to-r from-[#052a57]/90 via-[#0a3b78]/84 to-[#0b4ea2]/80" aria-hidden />
-    <div className="pointer-events-none absolute right-4 top-[24%] w-40 opacity-10 sm:right-[6%] sm:top-[22%] sm:w-64 lg:right-[10%] lg:top-[20%] lg:w-80" aria-hidden="true">
+    <div className="pointer-events-none absolute right-4 top-[24%] w-40 opacity-[0.12] sm:right-[6%] sm:top-[22%] sm:w-72 lg:right-[8%] lg:top-[20%] lg:w-[25rem]" aria-hidden="true">
       <Image src="/anusaya-logo.jpeg" alt="" width={800} height={800} className="h-auto w-full rounded-full" />
     </div>
     <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-5xl lg:translate-x-8">
         <span className="inline-flex max-w-full items-center gap-2 rounded-full bg-white/10 px-4 py-2.5 text-xs font-semibold text-white ring-1 ring-white/20 sm:px-5 sm:text-sm">
           <span className="availability-dot h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-400 ring-4 ring-emerald-400/20" aria-hidden="true" />
           {t("Available 24/7 — Serving Pune & PCMC", "२४/७ उपलब्ध — पुणे व पिंपरी-चिंचवडमध्ये सेवा")}
