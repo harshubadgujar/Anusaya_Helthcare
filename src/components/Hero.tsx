@@ -16,14 +16,14 @@ export default function Hero() {
           <span className="availability-dot h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-400 ring-4 ring-emerald-400/20" aria-hidden="true" />
           {t("Available 24/7 — Serving Pune & PCMC", "२४/७ उपलब्ध — पुणे व पिंपरी-चिंचवडमध्ये सेवा")}
         </span>
-        <h1 className="mx-auto mt-7 max-w-5xl text-center text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
+        <h1 className="mx-auto mt-7 max-w-5xl text-center text-2xl font-extrabold leading-tight text-white sm:text-3xl lg:text-4xl">
           {t("Anusaya Health Care Services", "अनुसया हेल्थ केअर सर्व्हिसेस")}
         </h1>
-        <p className="mx-auto mt-4 max-w-[58rem] text-center text-xl font-bold leading-snug text-white sm:text-2xl lg:text-3xl">
+        <p className="mx-auto mt-4 max-w-[58rem] text-center text-2xl font-bold leading-snug text-white sm:text-3xl lg:text-4xl">
           <span className="block">{t("Professional Home Nursing", "व्यावसायिक घरगुती नर्सिंग")}</span>
           <span className="shimmer-text mt-1 inline-block bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(90deg, #bae6fd 0%, #ffffff 50%, #67e8f9 100%)" }}>{t("Care at Your Doorstep", "सेवा तुमच्या घरी")}</span>
         </p>
-        <p className="mt-6 text-lg font-semibold text-blue-100 sm:text-xl">{t("Genuine and Affordable Nursing Care & Patient Support in Pune and PCMC.", "पुणे आणि पिंपरी-चिंचवडमध्ये विश्वासार्ह व परवडणारी नर्सिंग आणि रुग्णसेवा.")}</p>
+        <p className="mt-6 text-base font-semibold text-blue-100 sm:text-lg">{t("Genuine and Affordable Nursing Care & Patient Support in Pune and PCMC.", "पुणे आणि पिंपरी-चिंचवडमध्ये विश्वासार्ह व परवडणारी नर्सिंग आणि रुग्णसेवा.")}</p>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-blue-100/90 sm:text-lg">{t("From elderly care to post-hospital recovery, our nursing professionals provide compassionate, personalised care in the comfort of your home.", "ज्येष्ठांची काळजी असो किंवा रुग्णालयातून घरी आल्यानंतरची सेवा, आमचे नर्सिंग कर्मचारी तुमच्या घरी काळजीपूर्वक आणि वैयक्तिक सहाय्य देतात.")}</p>
         <p className="mt-5 text-sm font-bold tracking-wide text-cyan-200 sm:text-base">{t("Your Family's Health. Our Responsibility.", "तुमच्या कुटुंबाचे आरोग्य, आमची जबाबदारी.")}</p>
         <a href="tel:+918805042117" className="mt-5 inline-flex max-w-full items-center gap-2 rounded-full bg-red-500/25 px-4 py-2 text-xs font-semibold text-red-100 ring-1 ring-red-300/40 hover:bg-red-500/35 sm:text-sm">
